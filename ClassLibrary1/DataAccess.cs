@@ -11,7 +11,7 @@ namespace ClassLibrary1
     class DataAccess
     {
         public static string SqlConnectionString = @"Server=.\SQLExpress;Database=FilmsShop;Trusted_Connection=Yes";
-        public static void AddFilms()
+        public static void AddFilms(Films film)
         {
             SqlConnection Connection = new SqlConnection(SqlConnectionString);
             Connection.Open();
@@ -19,12 +19,12 @@ namespace ClassLibrary1
                  new SqlCommand("INSERT INTO Films (Titre_F, Realisateur_F, DateDeSortie_F , Resume_F , Genre_F , Duree_F) " +
                  "VALUES (@Titre,@Realisateur,@DateDeSortie,@Resume,@Genre,@Duree)", Connection);
 
-            FirstInsert.Parameters.AddWithValue("@Titre", "Resident Evil");
-            FirstInsert.Parameters.AddWithValue("@Realisateur", "Lars Von Trier");
-            FirstInsert.Parameters.AddWithValue("@DateDeSortie", "10/01/10");
-            FirstInsert.Parameters.AddWithValue("@Resume", "Film de zombies");
-            FirstInsert.Parameters.AddWithValue("@Genre", "Horreur");
-            FirstInsert.Parameters.AddWithValue("@Duree", "2h36");
+            FirstInsert.Parameters.AddWithValue("@Titre", film.Titre);
+            FirstInsert.Parameters.AddWithValue("@Realisateur", film.Realisateur);
+            FirstInsert.Parameters.AddWithValue("@DateDeSortie", film.DateDeSortie);
+            FirstInsert.Parameters.AddWithValue("@Resume", film.Resume);
+            FirstInsert.Parameters.AddWithValue("@Genre", film.Genre);
+            FirstInsert.Parameters.AddWithValue("@Duree",film.Duree);
             FirstInsert.ExecuteNonQuery();
             Connection.Close();
         }
