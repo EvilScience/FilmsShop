@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
 
-namespace ClassLibrary1
+namespace FilmShopLibrary
 {
-    class DataAccess
+    public class DataAccess
     {
         public static string SqlConnectionString = @"Server=.\SQLExpress;Database=FilmsShop;Trusted_Connection=Yes";
         public static void AddFilms(Films film)
@@ -50,5 +50,61 @@ namespace ClassLibrary1
             FirstInsert.ExecuteNonQuery();
             Connection.Close();
         }
+
+        private static void GetAllFilms()
+        {
+                SqlConnection Connection = new SqlConnection(SqlConnectionString);
+                Connection.Open();
+                SqlCommand command = Connection.CreateCommand();
+                command.CommandText = ("SELECT * FROM Films");
+                Connection.Close();
+        }
+
+        private static void GetAllPersonnes()
+        {
+            SqlConnection Connection = new SqlConnection(SqlConnectionString);
+            Connection.Open();
+            SqlCommand command = Connection.CreateCommand();
+            command.CommandText = ("SELECT * FROM Personnes");
+            Connection.Close();
+        }
+
+        private static void GetFilmsById()
+        {
+            SqlConnection Connection = new SqlConnection(SqlConnectionString);
+            Connection.Open();
+            SqlCommand command = Connection.CreateCommand();
+            command.CommandText = ("SELECT * FROM Films ORDER BY Id_F");
+            Connection.Close();
+        }
+
+        private static void GetPersonnesById()
+        {
+            SqlConnection Connection = new SqlConnection(SqlConnectionString);
+            Connection.Open();
+            SqlCommand command = Connection.CreateCommand();
+            command.CommandText = ("SELECT * FROM Films ORDER BY Id_F");
+            Connection.Close();
+        }
+
+        private static void GetFilmsByGenre()
+        {
+            SqlConnection Connection = new SqlConnection(SqlConnectionString);
+            Connection.Open();
+            SqlCommand command = Connection.CreateCommand();
+            command.CommandText = ("SELECT * FROM Films ORDER BY Genre_F");
+            Connection.Close();
+        }
+
+        private static void GetFilmByYear()
+        {
+            SqlConnection Connection = new SqlConnection(SqlConnectionString);
+            Connection.Open();
+            SqlCommand command = Connection.CreateCommand();
+            command.CommandText = ("SELECT * FROM Films ORDER BY DateDeSortie_F");
+            Connection.Close();
+        }
+
+
     }
 }

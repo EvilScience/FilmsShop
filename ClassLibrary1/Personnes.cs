@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ClassLibrary1
+namespace FilmShopLibrary
 {
     public class Personnes
     {
@@ -19,6 +19,10 @@ namespace ClassLibrary1
         private int poids;
         private int age;
 
+        public Personnes()
+        {
+        }
+
         public Personnes(int id, string nom, string prenom, DateTime dateDeNaissance, string adresse, 
             string ville, int codePostal, int taille, int poids, int age)
         {
@@ -32,6 +36,14 @@ namespace ClassLibrary1
             this.taille = taille;
             this.poids = poids;
             this.age = age;
+        }
+
+
+
+        static void SePresenter(Personnes personne)
+        {
+            Console.WriteLine("Bonjour je m'appelle " + personne.Prenom + personne.Nom + "." + " J'ai " + personne.age + 
+               " J'habite a " + personne.Ville);
         }
 
         public string Nom { get => nom; set => nom = value; }

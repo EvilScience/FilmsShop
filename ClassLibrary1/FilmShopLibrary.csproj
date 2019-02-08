@@ -43,7 +43,6 @@
   <ItemGroup>
     <Compile Include="Films.cs" />
     <Compile Include="DataAccess.cs" />
-    <Compile Include="Liste.cs" />
     <Compile Include="Personnes.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
 
-namespace ClassLibrary1
+namespace FilmShopLibrary
 {
     public class Films
     {
-        private int Id;
+        private int id;
         private string titre;
         private string realisateur;
         private DateTime dateDeSortie;
